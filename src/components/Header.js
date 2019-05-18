@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
 class Header extends Component {
-    state = {};
-    render() {
-        return <div>Header</div>
-    }
+  render() {
+    return (
+      <div>
+        <header>Header</header>
+        <div>{this.props.value}</div>
+      </div>
+    );
+  }
 }
 
 export default Header;

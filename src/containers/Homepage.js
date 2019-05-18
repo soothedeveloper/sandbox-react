@@ -3,19 +3,31 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 class Homepage extends Component {
-    state = {
-        sage: null
-    };
+  state = {
+    message: ""
+  };
 
-    render() {
-        return (
-            <div>
-                <Header/>
-                <div>Homepage</div>
-                <Footer/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Header value={this.state.message} />
+
+        <div>
+          <form>
+            <input
+              type="text"
+              value={this.state.message}
+              onChange={event => {
+                this.setState({ message: event.target.value });
+                console.log(this.state.message);
+              }}
+            />
+          </form>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default Homepage
+export default Homepage;
