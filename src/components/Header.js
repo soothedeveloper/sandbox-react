@@ -1,14 +1,21 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 class Header extends Component {
-  render() {
-    return (
-      <div>
-        <header>Header</header>
-        <div>{this.props.value}</div>
-      </div>
-    );
-  }
+
+    state = {
+        value: ""
+    };
+
+    render() {
+        return (
+            <div>
+                <header>Header</header>
+                <div>on est dans le header : {this.state.value}
+                    <button onClick={() => this.props.handler('!!!!!!!!!!!!!!!!!!')}/>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Header;

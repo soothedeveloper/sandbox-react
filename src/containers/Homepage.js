@@ -1,33 +1,33 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 class Homepage extends Component {
-  state = {
-    message: ""
-  };
 
-  render() {
-    return (
-      <div>
-        <Header value={this.state.message} />
+    constructor(props) {
+        super(props)
+    }
 
-        <div>
-          <form>
-            <input
-              type="text"
-              value={this.state.message}
-              onChange={event => {
-                this.setState({ message: event.target.value });
-                console.log(this.state.message);
-              }}
-            />
-          </form>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+    handler = (val) => {
+        let componentContext = this;
+        componentContext.setState({
+            value: val
+        })
+    };
+
+    state = {
+        value: ""
+    };
+
+    render() {
+        return (
+            <div>
+                <Header handler = {this.handler} />
+                <div>on est dans la homepage : {this.state.value}</div>
+                <Footer/>
+            </div>
+        );
+    }
 }
 
 export default Homepage;
